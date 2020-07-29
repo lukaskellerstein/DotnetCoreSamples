@@ -8,6 +8,18 @@ namespace App
         // -------------------------------------------------
         // DELEGATE is way how we can keep a method in variable
         // and call it later/when it's necessary
+        //
+        // Difference between Delegate and Event is:
+        //
+        // - Delegate NEED TO have a subscriber/method to call. 
+        //   Ex. LINQ Query: customers.Where(c => c.City == "London");
+        // - Event do NOT NEED TO have a subscriber/method to call.
+        //   Ex. Button.click 
+        //
+        // - Delegate is mostly short-lived 
+        //   Ex. LINQ Query
+        // - Event (listener/subscriber) is mostly long-lived subscriber 
+        //   Ex. Button.click
         // -------------------------------------------------
 
         // Declaration
@@ -39,7 +51,6 @@ namespace App
 
         static string UsageOfDelegate(string name, UpperDelegate method)
         {
-
             return method(name);
         }
 

@@ -8,6 +8,13 @@ namespace App
         {
             // Delegates
             MyDelegate.Run();
+
+            // Events
+            MyEvents.Run();
+
+
+            Console.WriteLine("Press Enter to end the program.");
+            Console.ReadLine();
         }
     }
 }
