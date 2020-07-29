@@ -31,7 +31,7 @@ namespace App
             // -------------------------------------------------
             // SWITCH 
             // -------------------------------------------------
-            switch (va1)
+            switch (var1)
             {
                 case 0:
                     Console.WriteLine("Zero");
@@ -39,8 +39,6 @@ namespace App
                 case 5:
                     Console.WriteLine("Five");
                     break;
-                default:
-                    Console.WriteLine("Not interested in this number");
             }
 
 
@@ -55,7 +53,7 @@ namespace App
             // -------------------------------------------------
             // FOR EARCH
             // -------------------------------------------------
-            var arr1 = { 1, 2, 3, 4, 5 };
+            int[] arr1 = { 1, 2, 3, 4, 5 };
             foreach (var item in arr1)
             {
                 Console.WriteLine(item);
@@ -64,33 +62,23 @@ namespace App
             // -------------------------------------------------
             // WHILE
             // -------------------------------------------------
-            string guess = "";
-            Console.WriteLine("What animal am I thinking of?");
-
-            // This loop will keep prompting the user, until they type in "dog".
-            while (guess != "dog")
+            int n = 0;
+            while (n < 5)
             {
-                Console.WriteLine("Make a guess:");
-                guess = Console.ReadLine();
+                Console.WriteLine(n);
+                n++;
             }
-            Console.WriteLine("That's right!");
 
 
             // -------------------------------------------------
             // DO WHILE 
             // -------------------------------------------------
+            int nn = 0;
             do
             {
-                DoStuff();
-            } while (boolCondition);
-
-            // This do-while is equivalent to the following while loop.
-
-            DoStuff();
-            while (boolCondition)
-            {
-                DoStuff();
-            }
+                Console.WriteLine(nn);
+                nn++;
+            } while (nn < 5);
 
             // -------------------------------------------------
             // JUMP
@@ -114,14 +102,6 @@ namespace App
                 Console.WriteLine(i);
             }
 
-            static int WeirdReturnOne()
-            {
-                while (true)
-                {
-                    // Since `return` exits the method, the loop is also terminated. Control returns to the method's caller.
-                    return 1;
-                }
-            }
         }
     }
 }
