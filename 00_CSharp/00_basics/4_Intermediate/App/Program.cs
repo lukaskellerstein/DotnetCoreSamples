@@ -13,6 +13,14 @@ namespace App
             MyEvents.Run();
 
 
+            // LINQ
+            MyLINQ.Run();
+
+
+            // Methods
+            MyMethods.Run();
+
+
             Console.WriteLine("Press Enter to end the program.");
             Console.ReadLine();
         }

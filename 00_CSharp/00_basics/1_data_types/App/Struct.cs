@@ -11,6 +11,9 @@ namespace App
 
         public static void Run()
         {
+            // Oneliner
+            Str1 str4 = new Str1 { name = "Joe", age = 44 };
+
             Str1 str1;
             str1.name = "Joe";
             str1.age = 44;
@@ -27,6 +30,8 @@ namespace App
             str3.age = 44;
             str3.doSomething();
             Console.WriteLine(str3.getSomething());
+
+
         }
 
     }

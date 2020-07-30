@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace App
 {
@@ -25,15 +27,24 @@ namespace App
 
 
             // ------------------------------------------------
-            // LINQ 
-            // ------------------------------------------------
-            // FINISH
-
-
-            // ------------------------------------------------
             // MAP, REDUCE 
             // ------------------------------------------------
-            // FINISH
+            // MAP (kind of)
+            arr1.ForEach(x =>
+            {
+                x = x + 1;
+                System.Console.WriteLine(x);
+            });
+
+            // FILTER
+            arr1.Where(x => x > 5).ToList().ForEach(x => System.Console.WriteLine(x));
+
+
+            // ------------------------------------------------
+            // LINQ 
+            // ------------------------------------------------
+            // viz Intermediate > LINQ
+
         }
     }
 

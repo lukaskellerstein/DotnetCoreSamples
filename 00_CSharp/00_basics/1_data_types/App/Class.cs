@@ -11,6 +11,8 @@ namespace App
 
         public static void Run()
         {
+            // Oneliner
+            var p0 = new Person { name = "John Wayne", role = "Actor" };
 
             var p1 = new Person("John Wayne", "Actor");
             Console.WriteLine(p1.IdentifyYourself());
@@ -43,10 +45,14 @@ namespace App
     {
 
         string id { get; set; }
-        string name { get; set; }
+        public string name { get; set; }
         public string role { get; set; }
 
         // Constructor
+        public Person()
+        {
+            this.id = Guid.NewGuid().ToString();
+        }
         public Person(string name, string role)
         {
             this.id = Guid.NewGuid().ToString();

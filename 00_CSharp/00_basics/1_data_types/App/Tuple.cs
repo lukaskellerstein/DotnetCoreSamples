@@ -38,7 +38,12 @@ namespace App
         static (string id, string name, int age, string role) getNewEmployee()
         {
             Helpers help = new Helpers();
-            return (id: Guid.NewGuid().ToString(), name: help.RandomString(10), age: help.RandomNumber(18, 60), role: "Newcomer");
+            return (
+                id: Guid.NewGuid().ToString(),
+                name: help.RandomString(10),
+                age: help.RandomNumber(18, 60),
+                role: "Newcomer"
+            );
         }
 
         static string IdentifyPerson((string id, string name, int age, string role) person)
