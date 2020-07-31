@@ -41,7 +41,8 @@ namespace App
             this.x = position.x + this.padding;
             this.y = position.y + this.padding;
 
-            this.height = 4;
+            // cannot access 
+            // this.height = 4;
         }
     }
 

@@ -1,3 +1,5 @@
+using System;
+
 namespace App
 {
 
@@ -14,6 +16,12 @@ namespace App
         // we should NOT allow acces public property directly, we should use getter and setter
         public double y;
 
+        public UIObjectBase(string name)
+        {
+            this.id = Guid.NewGuid().ToString();
+            this.name = name;
+        }
+
         public void ChangePosition(double x, double y)
         {
             this.x = x;
@@ -26,6 +34,10 @@ namespace App
 
     class Box1 : UIObjectBase
     {
+        public Box1(string name) : base(name)
+        {
+        }
+
         double margin { get; set; }
         double padding { get; set; }
 
