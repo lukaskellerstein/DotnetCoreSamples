@@ -21,6 +21,7 @@ namespace App
         {
             return $"Id: {Uid}, Ticker: {Ticker}";
         }
+
     }
 
 
