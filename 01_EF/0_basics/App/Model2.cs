@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace App.Model
+namespace App.Model2
 {
-    public class BloggingContext : DbContext
+    public class BloggingContext2 : DbContext
     {
         public DbSet<PullRequest> PullRequests { get; set; }
         public DbSet<PullRequestBuildInfo> Builds { get; set; }
@@ -12,14 +12,11 @@ namespace App.Model
         public DbSet<LatencyMetric> LatencyMetrics { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer(@"Data Source=localhost;Initial Catalog=EFTest;User Id=sa;Password=Master_1234;");
+            => options.UseSqlServer(@"Data Source=localhost;Initial Catalog=EFTest2;User Id=sa;Password=Master_1234;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<PullRequest>().Property(pr => pr.Id).ValueGeneratedNever();
-            modelBuilder.Entity<PullRequestBuildInfo>().Property(pr => pr.Id).ValueGeneratedNever();
-            modelBuilder.Entity<TestRun>().Property(run => run.Id).ValueGeneratedNever();
 
             var testRunsProperty = modelBuilder.Entity<PullRequestBuildInfo>()
                 .Metadata.FindNavigation(nameof(PullRequestBuildInfo.TestRuns));
@@ -36,6 +33,8 @@ namespace App.Model
         public long Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
+
+        public string Origin { get; set; }
 
         public List<PullRequestBuildInfo> Builds { get; set; } = new List<PullRequestBuildInfo>();
     }

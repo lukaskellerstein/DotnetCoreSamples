@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EFGetStarted.Migrations
+namespace App.Migrations.BloggingContext2Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class NewStructure : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,9 +10,11 @@ namespace EFGetStarted.Migrations
                 name: "PullRequests",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
-                    Author = table.Column<string>(nullable: true)
+                    Author = table.Column<string>(nullable: true),
+                    Origin = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -23,7 +25,8 @@ namespace EFGetStarted.Migrations
                 name: "Builds",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ContainerName = table.Column<string>(nullable: true),
                     PullRequestId = table.Column<long>(nullable: true)
                 },
@@ -42,7 +45,8 @@ namespace EFGetStarted.Migrations
                 name: "TestRuns",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BuildId = table.Column<long>(nullable: false),
                     Content = table.Column<string>(nullable: true),
                     PullRequestId = table.Column<long>(nullable: true),
@@ -72,7 +76,7 @@ namespace EFGetStarted.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Percentile = table.Column<double>(nullable: false),
-                    TestRunId = table.Column<long>(nullable: true)
+                    TestRunId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,7 +86,7 @@ namespace EFGetStarted.Migrations
                         column: x => x.TestRunId,
                         principalTable: "TestRuns",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
