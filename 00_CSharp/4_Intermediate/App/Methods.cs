@@ -18,6 +18,7 @@ namespace App
 
             var help = new Helper();
 
+            // String is reference type, BUT it is immutable
             var text = "INIT TEXT";
 
             System.Console.WriteLine(text);

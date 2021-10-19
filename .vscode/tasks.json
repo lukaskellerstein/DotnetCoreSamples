@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/00_CSharp/00_basics/4_Intermediate/App/App.csproj",
+                "${workspaceFolder}/00_CSharp/99_test/50_algo/2_linked_list/App/App.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/00_CSharp/00_basics/4_Intermediate/App/App.csproj",
+                "${workspaceFolder}/00_CSharp/50_algorithms/0_data_structures/App/App.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/00_CSharp/00_basics/4_Intermediate/App/App.csproj",
+                "${workspaceFolder}/00_CSharp/50_algorithms/0_data_structures/App/App.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

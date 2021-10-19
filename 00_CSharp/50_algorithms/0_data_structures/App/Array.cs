@@ -46,7 +46,9 @@ namespace App
             // ----------------------------------
 
             // This method uses Array.Sort, which uses the QuickSort algorithm. 
-            // On average, this method is an O(n log n) operation, where n is Count; in the worst case it is an O(n ^ 2) operation.
+            // On average, this method is an O(n log n) operation, 
+            // where n is Count; 
+            // in the worst case it is an O(n ^ 2) operation.
             Array.Sort(arr1);
 
 

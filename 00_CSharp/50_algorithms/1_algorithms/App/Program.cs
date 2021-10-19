@@ -6,7 +6,8 @@ namespace App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Linear Search 
+            MyLinearSearch.Run();
         }
     }
 }

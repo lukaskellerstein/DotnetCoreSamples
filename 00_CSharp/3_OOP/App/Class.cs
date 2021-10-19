@@ -6,8 +6,8 @@ namespace App
         // Private properties doesn't have to have a getter and setter
         string id;
         string name;
-        int height;
-        int width;
+        public int height;
+        public int width;
 
         // Protected or Public properties should have a getter and setter
         protected double x { get; set; }

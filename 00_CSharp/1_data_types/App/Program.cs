@@ -16,6 +16,7 @@ namespace App
             // ***************************************************
             // PRIMITIVE TYPES
             // value types = variable contains direct value
+            // are stored in STACK
             // ***************************************************
             // ***************************************************
             PrimitiveTypes.Run();
@@ -32,6 +33,7 @@ namespace App
             // ***************************************************
             // REFERENCE TYPES
             // = variable are just refernce to the memory where value is stored
+            // are stored in HEAP
             // ***************************************************
             // ***************************************************
 

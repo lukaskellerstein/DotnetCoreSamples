@@ -22,7 +22,7 @@ namespace App
             var bb = await Task.FromResult<string>("not very asynchronous text");
 
 
-            // CONTINUE WITH
+            // CONTINUE WITH - CHAINING
             await Task.Run(() =>
             {
                 return "asynchronous text";
@@ -37,7 +37,7 @@ namespace App
             await Task.WhenAll(asyncOps);
 
 
-            // WAIT FOR JUST ONE TASK
+            // WAIT FOR JUST FIRST FINISHED TASK
             var symbol = "AAPL";
             var recommendations = new List<Task<bool>>()
             {
@@ -66,7 +66,7 @@ namespace App
 
         static async Task<string> SendMailAsync(string address)
         {
-            Task.Delay(1000);
+            await Task.Delay(1000);
             return "Sended";
         }
 

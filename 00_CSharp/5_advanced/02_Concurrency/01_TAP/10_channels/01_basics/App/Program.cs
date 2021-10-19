@@ -9,43 +9,52 @@ namespace App
     {
         static async Task Main(string[] args)
         {
+            var chanStage1 = Stage1();
+            var chanStage2 = Stage2(chanStage1);
 
-            var chan1 = Channel.CreateUnbounded<string>();
-
-
-            var chanStage1 = await Stage1(chan1.Writer);
-            await Stage2(chan1);
-
-
-            while (await chan1.Reader.WaitToReadAsync())
+            var resultText = "";
+            await foreach (var item in chanStage2.ReadAllAsync())
             {
-                var aa = await chan1.Reader.ReadAsync();
-                System.Console.WriteLine(aa);
-
+                Console.WriteLine($"Result from item: {item}");
+                resultText += item;
             }
 
+            Console.WriteLine($"RESULT: {resultText}");
         }
 
 
-        static async ChannelReader<string> Stage1(ChannelWriter<string> ch)
+        static ChannelReader<string> Stage1()
         {
-            await ch.WriteAsync("Stage 1 - message 1");
-            await ch.WriteAsync("Stage 1 - message 2");
-            ch.Complete();
+            var output = Channel.CreateUnbounded<string>();
+
+            Task.Run(async () =>
+            {
+                await output.Writer.WriteAsync("Stage 1 - message 1");
+                await output.Writer.WriteAsync("Stage 1 - message 2");
+                output.Writer.Complete();
+            });
+
+            return output;
         }
 
-        static async void Stage2(Channel<string> ch)
+        static ChannelReader<string> Stage2(ChannelReader<string> inputChannel)
         {
 
-            while (await ch.Reader.WaitToReadAsync())
+            var output = Channel.CreateUnbounded<string>();
+
+            Task.Run(async () =>
             {
-                var aa = await ch.Reader.ReadAsync();
-                System.Console.WriteLine(aa);
+                await foreach (var text in inputChannel.ReadAllAsync())
+                {
+                    //do something
+                    var text2 = "AAAA" + text;
 
-                await ch.Writer.WriteAsync("Stage 2 - message 1");
-            }
+                    await output.Writer.WriteAsync(text2);
+                }
+                output.Writer.Complete();
+            });
 
-
+            return output;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace App
             // ----------------------------------
 
             // Add (to the end) - O(1)
+            // BUT if inner array needs to be bigger -> O(n)
             col1.Add("ddd");
 
             // Insert (at index) - O(n)

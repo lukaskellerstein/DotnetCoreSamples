@@ -6,15 +6,15 @@ namespace App
     {
         static void Main(string[] args)
         {
-            // Delegates
-            MyDelegate.Run();
+            // // Delegates
+            // MyDelegate.Run();
 
-            // Events
-            MyEvents.Run();
+            // // Events
+            // MyEvents.Run();
 
 
-            // LINQ
-            MyLINQ.Run();
+            // // LINQ
+            // MyLINQ.Run();
 
 
             // Methods
